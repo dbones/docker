@@ -1,0 +1,19 @@
+Setup Docker on a  bananapi
+
+pacman -Syu
+
+arch-install-scripts-13-1
+pacman -S docker lux wget expect
+
+pacman-key --init
+
+
+
+systemctl start docker
+
+docker images 		//lists all images.
+docker ps -all 		//list all running containers
+
+
+
+
