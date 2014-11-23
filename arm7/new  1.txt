@@ -1,19 +1,27 @@
 Setup Docker on a  bananapi
 
-pacman -Syu
+sudo pacman -Syu
+sudo pacman -S arch-install-scripts docker wget expect
 
-arch-install-scripts-13-1
-pacman -S docker lux wget expect
-
-pacman-key --init
-
-
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
 
 systemctl start docker
+systemctl enable docker
+
+wget https://raw.githubusercontent.com/dbones/docker/master/arm7/mkimage-arch.sh
+wget https://raw.githubusercontent.com/dbones/docker/master/arm7/mkimage-arch-pacman.conf
+
+sudo sh ./mkimage-arch.sh
+#sudo LC_ALL=C ./mkimage-arch.sh
+
+
 
 docker images 		//lists all images.
 docker ps -all 		//list all running containers
 
 
 
+Import PGP key 4096R/, "Arch Linux ARM Build System <builder@archlinuxarm.org>", created: 2014-01-18? [Y/n] Y
 
